@@ -1,0 +1,43 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    /**public ListNode middleNode(ListNode head) {
+        List<ListNode> arr = new ArrayList<>();
+        int len = 0;
+        while(head != null) {
+            arr.add(head);
+            head = head.next;
+            len++;
+        }
+
+        return arr.get(len/2);
+    } */
+
+    //time complexity O(n)
+    //space complexity O(n)
+
+    //can use merge sort . first find middle of list then call sortList function for left from head and same for right from middle then merge both list using same logic used in merging two sorted linked list
+
+    public ListNode middleNode(ListNode head) {
+        ListNode middle = head;
+        ListNode end = head;
+        
+        while(end != null && end.next != null) {
+            middle = middle.next;
+            end = end.next.next;
+        }
+
+        return middle;
+    }
+
+    //time complexity O(n)
+    //space complexity O(1)
+}
