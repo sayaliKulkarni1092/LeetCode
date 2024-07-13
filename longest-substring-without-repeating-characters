@@ -1,0 +1,47 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.equals("")) {
+            return 0;
+        }
+        if(s.trim().equals("") || s.length() == 1) {
+            return 1;
+        }
+
+ 
+        HashMap<Character,Integer> hm=new HashMap<>();
+        int ans=1;
+         int j=0;
+        int i=0;
+        int size=s.length();
+        while(j<size){
+            if(hm.containsKey(s.charAt(j)) && hm.get(s.charAt(j))>=i){
+                i=hm.get(s.charAt(j));
+                i++;
+                
+            }
+            
+            hm.put(s.charAt(j),j);
+            ans=Math.max(ans,j-i+1);
+            
+            j++;
+        }
+        return ans;
+        
+    }
+
+    public String removeduplicate(String sub) {
+        StringBuilder sb = new StringBuilder();
+        List<String> l1 = Arrays.asList(sub.split(""));
+        List<String> result = new ArrayList<>();
+        for (int i =0;i < l1.size();i++) {
+            if(!result.contains(l1.get(i))) {
+                result.add(l1.get(i));
+                sb.append(l1.get(i));
+            } else {
+                break;
+            }
+        }
+
+        return sb.toString();
+    }
+}
