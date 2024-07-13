@@ -1,0 +1,18 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int maxWealthOfCustomer = 0;
+
+        for (int[] customer : accounts) {
+            int currentCustomerWealth = 0;
+            for (int wealth : customer) {
+                currentCustomerWealth += wealth;
+            }
+
+            maxWealthOfCustomer = Math.max(maxWealthOfCustomer, currentCustomerWealth);
+        }
+        return maxWealthOfCustomer;
+    }
+
+    //time complexity is O(n * m) as iterating over i and j row and column
+    //space complexity is O (1) as we are not creating new
+}
